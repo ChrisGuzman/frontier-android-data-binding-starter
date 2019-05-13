@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Data Binder\'s Delivery</string>
+    <string name="menu_item_name_format">%1$dx %2$s</string>
+    <string name="currency_usd_format">$%1$.2f</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="delivery_cost">Delivery</string>
+    <string name="tip">Tip %</string>
+    <string name="total">Total</string>
+    <string name="button_submit">Submit</string>
+    <string name="dialog_submit_title">Success</string>
+    <string name="dialog_submit_body">Your order has been placed!</string>
+</resources>
