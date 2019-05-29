@@ -1,145 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
 
-    <LinearLayout
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintBottom_toTopOf="@id/menuItemsRecyclerView"
-        app:layout_constraintTop_toTopOf="parent">
+        <variable
+                name="viewModel"
+                type="com.example.databinding.MainViewModel"/>
 
-        <TextView
-            android:id="@+id/restaurantName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            tools:text="Restaurant Name" />
-
-        <TextView
-            android:id="@+id/restaurantAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/tertiary_text_dark"
-            tools:text="Restaurant Address" />
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/dividerBackground"
-        app:layout_constraintBottom_toTopOf="@id/menuItemsRecyclerView"
-        app:layout_constraintTop_toBottomOf="@id/header" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/menuItemsRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/footer"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        tools:itemCount="5"
-        tools:listitem="@layout/view_menu_item" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/dividerBackground"
-        app:layout_constraintBottom_toTopOf="@id/footer"
-        app:layout_constraintTop_toBottomOf="@id/menuItemsRecyclerView" />
-
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/footer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:gravity="end"
-        android:orientation="vertical"
-        android:paddingStart="12dp"
-        android:paddingTop="16dp"
-        android:paddingEnd="12dp"
-        android:paddingBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menuItemsRecyclerView">
-
-        <!-- TODO: Add tip EditText for later two-way binding and tip line item -->
-
-        <TextView
-            android:id="@+id/checkoutSubtotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            app:layout_constraintBottom_toTopOf="@id/deliveryCost"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="$999.99" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="@string/subtotal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/checkoutSubtotal" />
-
-        <TextView
-            android:id="@+id/deliveryCost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            app:layout_constraintBottom_toTopOf="@id/checkoutTotal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/checkoutSubtotal"
-            tools:text="$999.99" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="@string/delivery_cost"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/deliveryCost" />
-
-        <TextView
-            android:id="@+id/checkoutTotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/submit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/deliveryCost"
-            tools:text="$999.99" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="@string/total"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/checkoutTotal" />
-
-        <Button
-            android:id="@+id/submit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/button_submit"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/checkoutTotal" />
+            android:layout_height="match_parent"
+            tools:context=".MainActivity">
+
+        <LinearLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:orientation="vertical"
+                android:padding="16dp"
+                app:layout_constraintBottom_toTopOf="@id/menuItemsRecyclerView"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                    android:id="@+id/restaurantName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:text="@{viewModel.order.restaurant.name}"
+                    tools:text="Restaurant Name"/>
+
+            <TextView
+                    android:id="@+id/restaurantAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/tertiary_text_dark"
+                    android:text="@{viewModel.order.restaurant.address}"
+                    tools:text="Restaurant Address"/>
+
+        </LinearLayout>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dividerBackground"
+                app:layout_constraintBottom_toTopOf="@id/menuItemsRecyclerView"
+                app:layout_constraintTop_toBottomOf="@id/header"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/menuItemsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@id/footer"
+                app:layout_constraintTop_toBottomOf="@id/header"
+                tools:itemCount="5"
+                tools:listitem="@layout/view_menu_item"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dividerBackground"
+                app:layout_constraintBottom_toTopOf="@id/footer"
+                app:layout_constraintTop_toBottomOf="@id/menuItemsRecyclerView"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:gravity="end"
+                android:orientation="vertical"
+                android:paddingStart="12dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/menuItemsRecyclerView">
+
+            <TextView
+                    android:id="@+id/checkoutSubtotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:text="@{@string/currency_usd_format((float) viewModel.order.subtotal / 100)}"
+                    app:layout_constraintBottom_toTopOf="@id/deliveryCost"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="$999.99"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@string/subtotal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/checkoutSubtotal"/>
+
+            <TextView
+                    android:id="@+id/deliveryCost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:text="@{@string/currency_usd_format((float) viewModel.order.deliveryCost / 100)}"
+                    app:layout_constraintBottom_toTopOf="@id/checkoutTotal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/checkoutSubtotal"
+
+                    tools:text="$999.99"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@string/delivery_cost"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/deliveryCost"/>
+
+            <TextView
+                    android:id="@+id/checkoutTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:textStyle="bold"
+                    android:text="@{@string/currency_usd_format((float) viewModel.total / 100)}"
+                    app:layout_constraintBottom_toTopOf="@id/submit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/deliveryCost"
+                    tools:text="$999.99"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@string/total"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/checkoutTotal"/>
+
+            <Button
+                    android:id="@+id/submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/button_submit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/checkoutTotal"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
